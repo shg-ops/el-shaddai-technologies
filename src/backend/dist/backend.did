@@ -1,0 +1,64 @@
+type Time = int;
+type ProductListing = 
+ record {
+   createdAt: Time;
+   description: text;
+   features: vec text;
+   id: nat;
+   isActive: bool;
+   name: text;
+   price: text;
+ };
+type JobListing = 
+ record {
+   createdAt: Time;
+   department: text;
+   description: text;
+   id: nat;
+   isActive: bool;
+   jobType: text;
+   location: text;
+   requirements: vec text;
+   title: text;
+ };
+type ContentBlock = 
+ record {
+   content: text;
+   key: text;
+   title: text;
+   updatedAt: Time;
+ };
+type ContactSubmission = 
+ record {
+   createdAt: Time;
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   subject: text;
+ };
+service : {
+  createJobListing: (title: text, department: text, location: text, jobType:
+   text, description: text, requirements: vec text) -> (nat);
+  createProductListing: (name: text, description: text, features: vec text,
+   price: text) -> (nat);
+  deleteJobListing: (id: nat) -> ();
+  deleteProductListing: (id: nat) -> ();
+  getActiveJobListings: () -> (vec JobListing) query;
+  getActiveProductListings: () -> (vec ProductListing) query;
+  getAllContentBlocks: () -> (vec ContentBlock) query;
+  getAllJobListings: () -> (vec JobListing) query;
+  getAllProductListings: () -> (vec ProductListing) query;
+  getContactSubmissions: () -> (vec ContactSubmission) query;
+  getContentBlock: (key: text) -> (opt ContentBlock) query;
+  seedDefaultContent: () -> ();
+  submitContactForm: (name: text, email: text, phone: text, subject: 
+   text, message: text) -> ();
+  updateContentBlock: (key: text, title: text, content: text) -> ();
+  updateJobListing: (id: nat, title: text, department: text, location: 
+   text, jobType: text, description: text, requirements: vec text, isActive:
+   bool) -> ();
+  updateProductListing: (id: nat, name: text, description: text, features:
+   vec text, price: text, isActive: bool) -> ();
+}

@@ -1,0 +1,112 @@
+// Version: 3.0.0
+type ContactSubmission__390548495 =
+  {
+    createdAt : Time__900049286;
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    subject : Text
+  };
+type ContentBlock__409031135 =
+  {content : Text; key : Text; title : Text; updatedAt : Time__900049286};
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Int__270357528 = Int__616954475;
+type Int__616954475 = Int;
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type JobListing__535247011 =
+  {
+    createdAt : Time__900049286;
+    department : Text;
+    description : Text;
+    id : Nat;
+    isActive : Bool;
+    jobType : Text;
+    location : Text;
+    requirements : [Text];
+    title : Text
+  };
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type OldContactSubmission__497036255 =
+  {
+    email : Text;
+    message : Text;
+    name : Text;
+    phone : ?Text;
+    timestamp : Time__900049286
+  };
+type OldContentBlock__710287350 = {page : Text; section : Text; value : Text};
+type OldJobListing__846706131 =
+  {
+    department : Text;
+    description : Text;
+    isActive : Bool;
+    jobType : OldJobType__264917897;
+    location : Text;
+    requirements : [Text];
+    title : Text
+  };
+type OldJobType__264917897 = {#contract; #fullTime; #partTime};
+type OldProductListing__795409354 =
+  {
+    description : Text;
+    features : [Text];
+    isActive : Bool;
+    name : Text;
+    tagline : Text
+  };
+type ProductListing__938014182 =
+  {
+    createdAt : Time__900049286;
+    description : Text;
+    features : [Text];
+    id : Nat;
+    isActive : Bool;
+    name : Text;
+    price : Text
+  };
+type Time__796480547 = Int__270357528;
+type Time__900049286 = Time__796480547;
+actor ({
+  in contactSubmissions :
+    Map__605269027<Text, OldContactSubmission__497036255>;
+  in contentBlocks : Map__605269027<Text, OldContentBlock__710287350>;
+  in jobListings : Map__605269027<Text, OldJobListing__846706131>;
+  in var nextContactId : Nat;
+  in productListings : Map__605269027<Text, OldProductListing__795409354>
+}, {
+  stable contactSubmissions :
+    {
+      var root : Node__46230540<Nat, ContactSubmission__390548495>;
+      var size : Nat__490723111
+    };
+  stable contentBlocks :
+    {
+      var root : Node__46230540<Text, ContentBlock__409031135>;
+      var size : Nat__490723111
+    };
+  stable jobListings :
+    {
+      var root : Node__46230540<Nat, JobListing__535247011>;
+      var size : Nat__490723111
+    };
+  stable var nextContactId : Nat;
+  stable var nextJobId : Nat;
+  stable var nextProductId : Nat;
+  stable productListings :
+    {
+      var root : Node__46230540<Nat, ProductListing__938014182>;
+      var size : Nat__490723111
+    }
+}) ;

@@ -1,0 +1,24 @@
+{
+  "overview": "Professional corporate website for EL-Shaddai Technologies Inc, a B2B technology staffing and consulting firm. Features 7 pages, client showcase, job listings, team photos, contact form, and a full admin panel for content management.",
+  "features": [
+    "7-page website: Home, About, Services, Products, Careers, Why Us, Contact",
+    "Professional client showcase: Microsoft, IBM, Deloitte, Accenture, Oracle, Cisco, SAP, Infosys",
+    "Careers page with live job listings and We Are Hiring banner",
+    "Why Us page with team photos",
+    "Contact form with backend storage",
+    "Admin panel at /admin — any Internet Identity login gets full access",
+    "Navy, crimson red, and gold brand colors",
+    "Text-only header and footer, no logo image"
+  ],
+  "category": "business",
+  "tags": [
+    "corporate",
+    "staffing",
+    "consulting",
+    "it",
+    "b2b",
+    "admin-panel",
+    "careers"
+  ],
+  "last_updated": "2026-04-25T10:16:42.443Z"
+}
