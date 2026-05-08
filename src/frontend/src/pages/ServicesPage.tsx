@@ -13,16 +13,6 @@ import {
 } from "lucide-react";
 import { type Variants, motion } from "motion/react";
 
-import logoAccenture from "/assets/generated/client-accenture-transparent.dim_200x100.png";
-import logoCisco from "/assets/generated/client-cisco-transparent.dim_200x100.png";
-import logoDeloitte from "/assets/generated/client-deloitte-transparent.dim_200x100.png";
-import logoIbm from "/assets/generated/client-ibm-transparent.dim_200x100.png";
-import logoInfosys from "/assets/generated/client-infosys-transparent.dim_200x100.png";
-// ── Client logo ES module imports ────────────────────────────────────────
-import logoMicrosoft from "/assets/generated/client-microsoft-transparent.dim_200x100.png";
-import logoOracle from "/assets/generated/client-oracle-transparent.dim_200x100.png";
-import logoSap from "/assets/generated/client-sap-transparent.dim_200x100.png";
-
 const services = [
   {
     icon: Users,
@@ -92,14 +82,15 @@ const services = [
 ];
 
 const clients = [
-  { name: "Microsoft", sector: "Technology", logo: logoMicrosoft },
-  { name: "IBM", sector: "Enterprise IT", logo: logoIbm },
-  { name: "Deloitte", sector: "Consulting", logo: logoDeloitte },
-  { name: "Accenture", sector: "Professional Services", logo: logoAccenture },
-  { name: "Oracle", sector: "Cloud & Database", logo: logoOracle },
-  { name: "Cisco", sector: "Networking", logo: logoCisco },
-  { name: "SAP", sector: "Enterprise Software", logo: logoSap },
-  { name: "Infosys", sector: "IT Services", logo: logoInfosys },
+  { name: "Wellsfargo", sector: "Financial Services" },
+  { name: "Western Alliance Bank", sector: "Banking" },
+  { name: "Synechron", sector: "Financial Technology" },
+  { name: "Photon", sector: "Digital Services" },
+  { name: "Girnar Soft", sector: "Technology" },
+  { name: "Gsspann Technologies", sector: "IT Services" },
+  { name: "State of Texas", sector: "Government" },
+  { name: "State of New York", sector: "Government" },
+  { name: "Randstad", sector: "Staffing & HR" },
 ];
 
 const containerVariants: Variants = {
@@ -241,11 +232,11 @@ export default function ServicesPage() {
               Our Network
             </span>
             <h2 className="font-display text-3xl lg:text-5xl font-bold text-brand-navy mb-4">
-              Trusted by Industry Leaders
+              Our Clients
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              We are proud to partner with some of the world's most respected
-              technology and enterprise organizations.
+              We are proud to have served leading organizations across financial
+              services, government, technology, and staffing industries.
             </p>
           </motion.div>
 
@@ -254,7 +245,7 @@ export default function ServicesPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-5"
           >
             {clients.map((client, i) => (
               <motion.div
@@ -262,25 +253,14 @@ export default function ServicesPage() {
                 variants={itemVariants}
                 data-ocid={`services.clients.item.${i + 1}`}
               >
-                <Card className="group h-full border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 bg-card">
-                  <CardContent className="p-5 flex flex-col items-center text-center gap-3">
-                    {/* White padded image area for maximum logo visibility */}
-                    <div className="w-full bg-white rounded-lg p-3 flex items-center justify-center h-[68px] border border-border/30">
-                      <img
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        className="max-h-[48px] max-w-[140px] w-auto object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-display font-bold text-brand-navy text-sm leading-tight">
-                        {client.name}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {client.sector}
-                      </p>
-                    </div>
+                <Card className="group h-full border-2 border-brand-gold/40 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-brand-navy">
+                  <CardContent className="p-5 flex flex-col items-center justify-center text-center gap-2 min-h-[110px]">
+                    <p className="font-display font-bold text-white text-sm leading-tight group-hover:text-brand-gold transition-colors duration-200">
+                      {client.name}
+                    </p>
+                    <span className="inline-block text-[11px] font-semibold uppercase tracking-wide text-brand-gold/80 border border-brand-gold/30 rounded-full px-2 py-0.5">
+                      {client.sector}
+                    </span>
                   </CardContent>
                 </Card>
               </motion.div>

@@ -55881,14 +55881,6 @@ function ProductsPage() {
     )
   ] });
 }
-const logoAccenture = "/assets/generated/client-accenture-transparent.dim_200x100.png";
-const logoCisco = "/assets/generated/client-cisco-transparent.dim_200x100.png";
-const logoDeloitte = "/assets/generated/client-deloitte-transparent.dim_200x100.png";
-const logoIbm = "/assets/generated/client-ibm-transparent.dim_200x100.png";
-const logoInfosys = "/assets/generated/client-infosys-transparent.dim_200x100.png";
-const logoMicrosoft = "/assets/generated/client-microsoft-transparent.dim_200x100.png";
-const logoOracle = "/assets/generated/client-oracle-transparent.dim_200x100.png";
-const logoSap = "/assets/generated/client-sap-transparent.dim_200x100.png";
 const services = [
   {
     icon: Users,
@@ -55952,14 +55944,15 @@ const services = [
   }
 ];
 const clients = [
-  { name: "Microsoft", sector: "Technology", logo: logoMicrosoft },
-  { name: "IBM", sector: "Enterprise IT", logo: logoIbm },
-  { name: "Deloitte", sector: "Consulting", logo: logoDeloitte },
-  { name: "Accenture", sector: "Professional Services", logo: logoAccenture },
-  { name: "Oracle", sector: "Cloud & Database", logo: logoOracle },
-  { name: "Cisco", sector: "Networking", logo: logoCisco },
-  { name: "SAP", sector: "Enterprise Software", logo: logoSap },
-  { name: "Infosys", sector: "IT Services", logo: logoInfosys }
+  { name: "Wellsfargo", sector: "Financial Services" },
+  { name: "Western Alliance Bank", sector: "Banking" },
+  { name: "Synechron", sector: "Financial Technology" },
+  { name: "Photon", sector: "Digital Services" },
+  { name: "Girnar Soft", sector: "Technology" },
+  { name: "Gsspann Technologies", sector: "IT Services" },
+  { name: "State of Texas", sector: "Government" },
+  { name: "State of New York", sector: "Government" },
+  { name: "Randstad", sector: "Staffing & HR" }
 ];
 const containerVariants = {
   hidden: {},
@@ -56087,8 +56080,8 @@ function ServicesPage() {
               className: "text-center mb-12",
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block text-xs font-display font-semibold uppercase tracking-widest text-brand-red mb-3", children: "Our Network" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl lg:text-5xl font-bold text-brand-navy mb-4", children: "Trusted by Industry Leaders" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-xl mx-auto", children: "We are proud to partner with some of the world's most respected technology and enterprise organizations." })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl lg:text-5xl font-bold text-brand-navy mb-4", children: "Our Clients" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-xl mx-auto", children: "We are proud to have served leading organizations across financial services, government, technology, and staffing industries." })
               ]
             }
           ),
@@ -56099,26 +56092,15 @@ function ServicesPage() {
               initial: "hidden",
               whileInView: "visible",
               viewport: { once: true },
-              className: "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5",
+              className: "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-5",
               children: clients.map((client2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
                 motion.div,
                 {
                   variants: itemVariants,
                   "data-ocid": `services.clients.item.${i + 1}`,
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "group h-full border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 bg-card", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-5 flex flex-col items-center text-center gap-3", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-white rounded-lg p-3 flex items-center justify-center h-[68px] border border-border/30", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "img",
-                      {
-                        src: client2.logo,
-                        alt: `${client2.name} logo`,
-                        className: "max-h-[48px] max-w-[140px] w-auto object-contain",
-                        loading: "lazy"
-                      }
-                    ) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-bold text-brand-navy text-sm leading-tight", children: client2.name }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-0.5", children: client2.sector })
-                    ] })
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "group h-full border-2 border-brand-gold/40 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-brand-navy", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-5 flex flex-col items-center justify-center text-center gap-2 min-h-[110px]", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-bold text-white text-sm leading-tight group-hover:text-brand-gold transition-colors duration-200", children: client2.name }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block text-[11px] font-semibold uppercase tracking-wide text-brand-gold/80 border border-brand-gold/30 rounded-full px-2 py-0.5", children: client2.sector })
                   ] }) })
                 },
                 client2.name
